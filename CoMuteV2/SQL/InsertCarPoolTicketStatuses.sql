@@ -1,0 +1,7 @@
+USE CoMuteV2
+GO
+
+IF EXISTS(SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'CarPoolTicketStatus')
+BEGIN
+	INSERT INTO CarPoolTicketStatus VALUES('Active'), ('Complete'), ('Cancelled')  
+END

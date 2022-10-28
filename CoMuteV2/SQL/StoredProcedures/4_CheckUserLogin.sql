@@ -1,0 +1,13 @@
+USE CoMuteV2
+GO
+
+CREATE PROCEDURE CheckUserLogin(@Email VARCHAR(50), @Password VARCHAR(MAX))
+AS
+
+IF EXISTS(SELECT 1 FROM Users WHERE Email = @Email AND Password = @Password)
+	BEGIN
+		RETURN 1;
+	END
+ELSE
+	RETURN 0;
+GO
