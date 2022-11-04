@@ -73,6 +73,7 @@ const GlobalStyles = createGlobalStyle`
         flex-wrap: wrap;
         height: 100vh;
         width: 100vw;
+        scroll-behavior: smooth;
     }
     
     body{

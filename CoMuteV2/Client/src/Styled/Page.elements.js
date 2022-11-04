@@ -47,7 +47,7 @@ export const PageItemContainer = styled.div`
     border-radius: 5px;
     gap: 1em;
     background-color: ${props => props.theme.containerBackground};
-
+    scroll-snap-type: y proximity;
     ${BaseScrollBar};
 `;
 

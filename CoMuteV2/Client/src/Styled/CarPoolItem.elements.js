@@ -14,6 +14,7 @@ export const MyCommuteItem = styled.div`
     width: 24em;
     min-width: min-content;
     height: min-content;
+    scroll-snap-align: start;
 `;
 
 export const RegisteredCommuteItem = styled.div`
@@ -27,6 +28,7 @@ export const RegisteredCommuteItem = styled.div`
     width: 24em;
     min-width: min-content;
     height: min-content;
+    scroll-snap-align: start;
 `;
 
 export const SearchedCommuteItem = styled.div`
@@ -39,6 +41,7 @@ export const SearchedCommuteItem = styled.div`
     box-shadow: 5px 5px 10px rgba(0, 0, 0, .25);
     min-width: min-content;
     height: min-content;
+    scroll-snap-align: start;
 `;
 
 
