@@ -8,6 +8,7 @@ import useHttp from '../../Hooks/useHttp';
 import { useModal } from '../../Context/ModalContext';
 import CreateCommute from './CreateCommute';
 import useLocalStorage from '../../Hooks/useLocalStorage';
+import {IoChevronUpSharp, IoChevronDownSharp} from 'react-icons/io5';
 
 export default function Home() {
   const [showRegistered, setShowRegistered] = useState(true);
@@ -18,7 +19,6 @@ export default function Home() {
   const [getLocalStorageItem] = useLocalStorage();
 
   const modal = useModal();
-
 
  useEffect(() => {
     fetchHttp();
@@ -65,7 +65,7 @@ export default function Home() {
       </PageContainer>
 
       
-        <PageHeader onClick={handleShowRegistered}>Registered Commutes</PageHeader>
+        <PageHeader onClick={handleShowRegistered}>Registered Commutes {!showRegistered? <IoChevronUpSharp/> : <IoChevronDownSharp />}</PageHeader>
         {
           showRegistered &&
           <PageContainer>

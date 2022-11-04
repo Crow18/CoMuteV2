@@ -18,6 +18,7 @@ const SearchAddress = ({actionResult}) => {
   if(results)
   {
       actionResult.setData(results.data);
+      actionResult.setIsSearched(true);
   }
  }
 

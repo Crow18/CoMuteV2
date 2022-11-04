@@ -13,6 +13,7 @@ const FindCommutes = () => {
   const [doRequest, loading] = useHttp();
   const [getLocalStorageItem] = useLocalStorage();
   const [data, setData] = useState([]);
+  const [isSearched, setIsSearched] = useState(false);
 
 
   useEffect(() => {
@@ -22,8 +23,8 @@ const FindCommutes = () => {
   const userData = getLocalStorageItem("userData");
 
   const doFetchTodysAvailableTickets = async() =>{
-    const foundTickets = doRequest(process.env.REACT_APP_FETCH_INITIAL_FIND_CARPOOLTICKETS, 'GET', '', userData.userID);
-    if(foundTickets.data.length > 0)
+    const foundTickets = doRequest(process.env.REACT_APP_FETCH_INITIAL_FIND_CARPOOLTICKETS, 'GET', '', userData.token);
+    if(foundTickets.data && foundTickets.data.length > 0)
     {
       setData(foundTickets.data)
     }
@@ -31,13 +32,14 @@ const FindCommutes = () => {
 
   return (
     <Page>
-      <PageHeader>Find Commutes</PageHeader>
+      <PageHeader>Find CoMutes</PageHeader>
       <PageContainer>
-        <SearchAddress actionResult={{setData}}/>
+        <SearchAddress actionResult={{setData, setIsSearched}}/>
+        {!isSearched && <PageHeader>Todays CoMutes</PageHeader>}
         <PageItemContainer>
           {
             loading ? <Loading /> :
-              data.length > 0 ?
+              data && data.length > 0 ?
                 data.map(item => <FindCommuteItem key={item.carPoolTicketID} data={item}/>) :
                 <DefaultText>There are no tickets available</DefaultText>
           }

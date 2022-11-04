@@ -17,11 +17,12 @@ function Login() {
 
 
     const doLogin = (response) => {
+      console.log(response);
       if(response.error.length > 0)
       {
         return console.log("err", response.error);//add case for modal
       }
-      if(response.data)
+      if(Object.keys(response.data).length > 0)
       {
         clearLocalStorage();
         setLocalStorageItem("userData", response.data);

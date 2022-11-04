@@ -24,7 +24,7 @@ const DateSelector = ({dateTime, position, readOnly, rf}) => {
           format="DD/MM/YYYY, hh:mm"
           fixMainPosition="bottom"
           className='calclock'
-          plugins={[<TimePicker  hideSeconds/>]}
+          plugins={[<TimePicker hideSeconds/>]}
         />
     </DateTimePickerUtility>
   )
